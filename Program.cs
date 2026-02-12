@@ -1,11 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.S;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
-
-
-
-
+using JewelryStore.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
