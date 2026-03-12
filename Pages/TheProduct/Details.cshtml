@@ -1,0 +1,19 @@
+﻿@page "{id:int}"
+@model JewelryStore.Pages.Decoration.DetailsModel
+@{
+}
+
+
+<h1>Информация о украшении</h1>
+
+<div>
+    <p><strong>Название:</strong> @Model.TheProduct.Title</p>
+    <p><strong>Цена:</strong> @Model.TheProduct.Price</p>
+    <p><strong>Продукт:</strong> @Model.TheProduct.Product</p>
+    <p><strong>Проба:</strong> @Model.TheProduct.Test</p>
+    <p><strong>Дата изготовления:</strong> @Model.TheProduct.ProductionDate</p>
+</div>
+
+<p>
+    <a asp-page="Index">Назад к списку</a>
+</p>

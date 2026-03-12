@@ -3,36 +3,28 @@ using JewelryStore.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace JewelryStore.Pages.Buyer
+namespace JewelryStore.Pages.Decoration
 {
-    public class EditModel : PageModel
+    public class CreateModel : PageModel
     {
         private readonly ApplicationDbContext _context;
 
-        public EditModel(ApplicationDbContext context)
+        public CreateModel(ApplicationDbContext context)
         {
             _context = context;
         }
 
         [BindProperty]
-        public JewelryStore.Model.Buyer Buyer { get; set; }
+        public JewelryStore.Model.TheProduct TheProduct { get; set; }
 
-        public IActionResult OnGet(int id)
-        {
-            Buyer = _context.Buyers.Find(id);
-
-            if (Buyer == null)
-                return NotFound();
-
-            return Page();
-        }
+        public void OnGet() { }
 
         public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
                 return Page();
 
-            _context.Buyers.Update(Buyer);
+            _context.TheProducts.Add(TheProduct);
             _context.SaveChanges();
 
             return RedirectToPage("Index");

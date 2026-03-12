@@ -3,59 +3,33 @@
 @{
 }
 
-
-<div class="row justify-content-center">
-    <div class="col-md-8 col-lg-6">
-
-        <div class="card shadow-sm mt-4">
-            <div class="card-header bg-primary text-white">
-                <h5 class="mb-0">Информация о студенте</h5>
+<div>
+    <div>
+        <div>
+            <div>
+                <h5>Информация о покупателе</h5>
             </div>
-
-            <div class="card-body">
-
-                <dl class="row mb-0">
-                    <dt class="col-sm-4">Фамилия</dt>
-                    <dd class="col-sm-8">@Model.Buyer.LastName</dd>
-
-                    <dt class="col-sm-4">Email</dt>
-                    <dd class="col-sm-8">@Model.Buyer.Email</dd>
-
-                    <dt class="col-sm-4">Телефон</dt>
-                    <dd class="col-sm-8">
-                        @(string.IsNullOrEmpty(Model.Buyer.Phone)
-                                                ? "—"
-                                                : Model.Buyer.Phone)
-                    </dd>
-
-                    <dt class="col-sm-4">Дата рождения</dt>
-                    <dd class="col-sm-8">
-                        @Model.Buyer.BirthDate.ToShortDateString()
-                    </dd>
+            <div>
+                <dl>
+                    <dt>ИНН</dt>
+                    <dd>@Model.Buyer.INN</dd>
+                    <dt>ФИО</dt>
+                    <dd>@Model.Buyer.FIO</dd>
                 </dl>
-
             </div>
-
-            <div class="card-footer d-flex justify-content-between">
-                <a asp-page="Index" class="btn btn-outline-secondary">
+            <div>
+                <a asp-page="Index">
                     Назад
                 </a>
-
                 <div>
-                    <a asp-page="Edit"
-                       asp-route-id="@Model.Buyer.Id"
-                       class="btn btn-warning me-2">
+                    <a asp-page="Edit" asp-route-id="@Model.Buyer.Id">
                         Редактировать
                     </a>
-
-                    <a asp-page="Delete"
-                       asp-route-id="@Model.Buyer.Id"
-                       class="btn btn-danger">
+                    <a asp-page="Delete" asp-route-id="@Model.Buyer.Id">
                         Удалить
                     </a>
                 </div>
             </div>
         </div>
-
     </div>
 </div>

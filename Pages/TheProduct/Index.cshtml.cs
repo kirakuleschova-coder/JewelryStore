@@ -3,7 +3,7 @@ using JewelryStore.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace JewelryStore.Pages.Buyer
+namespace JewelryStore.Pages.Decoration
 {
     public class IndexModel : PageModel
     {
@@ -14,11 +14,11 @@ namespace JewelryStore.Pages.Buyer
             _context = context;
         }
 
-        public List<JewelryStore.Model.Buyer> Buyers { get; set; }
+        public List<JewelryStore.Model.TheProduct> TheProducts { get; set; }
 
         public void OnGet()
         {
-            Buyers = _context.Buyers.ToList();
+            TheProducts = _context.TheProducts.ToList();
         }
     }
 }
