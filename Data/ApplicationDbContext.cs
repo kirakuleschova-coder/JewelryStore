@@ -13,5 +13,6 @@ namespace JewelryStore.Data
         public DbSet<Buyer> Buyers { get; set; }
         public DbSet<Manufacturer> Manufacturers { get; set; }
         public DbSet<TheProduct> TheProducts { get; set; }
+        public DbSet<Product> Products { get; set; }
     }
 }

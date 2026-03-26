@@ -1,31 +1,29 @@
 ﻿@page "{id:int}"
 @model JewelryStore.Pages.Buyer.DeleteModel
 
-<div>
-    <div>
-        <div>
-            <div>
-                <h5>Подтверждение удаления</h5>
-            </div>
-            <div>
-                <p>
-                    Вы действительно хотите удалить покупателя:
-                </p>
-                <div>
-                    <strong>@Model.Buyer.INN</strong><br />
-                    <small>@Model.Buyer.FIO</small>
+<div class="container mt-four">
+    <div class="row justify-content-center">
+        <div class="col-md-six">
+            <div class="card">
+                <div class="card-header bg-warning text-dark">
+                    <h5 class="mb-zero">Подтверждение удаления</h5>
                 </div>
-                <form method="post">
-                    <input type="hidden" asp-for="Buyer.Id" />
-                    <div>
-                        <a asp-page="Index">
-                            Отмена
-                        </a>
-                        <button type="submit">
-                            Удалить
-                        </button>
+                <div class="card-body">
+                    <p class="mb-three">Вы действительно хотите удалить покупателя:</p>
+
+                    <div class="alert alert-light border border-lightgray">
+                        <strong class="d-block mb-one">@Model.Buyer.INN</strong>
+                        <small class="text-secondary">@Model.Buyer.FIO</small>
                     </div>
-                </form>
+
+                    <form method="post">
+                        <input type="hidden" asp-for="Buyer.Id" />
+                        <div class="d-flex gap-two">
+                            <a asp-page="Index" class="btn btn-secondary">Отмена</a>
+                            <button type="submit" class="btn btn-danger">Удалить</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
