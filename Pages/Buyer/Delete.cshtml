@@ -1,4 +1,32 @@
-﻿@page
+﻿@page "{id:int}"
 @model JewelryStore.Pages.Buyer.DeleteModel
-@{
-}
+
+<div>
+    <div>
+        <div>
+            <div>
+                <h5>Подтверждение удаления</h5>
+            </div>
+            <div>
+                <p>
+                    Вы действительно хотите удалить покупателя:
+                </p>
+                <div>
+                    <strong>@Model.Buyer.INN</strong><br />
+                    <small>@Model.Buyer.FIO</small>
+                </div>
+                <form method="post">
+                    <input type="hidden" asp-for="Buyer.Id" />
+                    <div>
+                        <a asp-page="Index">
+                            Отмена
+                        </a>
+                        <button type="submit">
+                            Удалить
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

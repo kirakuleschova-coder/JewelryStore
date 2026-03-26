@@ -2,3 +2,41 @@
 @model JewelryStore.Pages.Buyer.CreateModel
 @{
 }
+
+<h1>Добавить покупателя</h1>
+
+<div>
+    <div>
+        <form method="post">
+            <div>
+                <div>
+                    <div>
+                        <label asp-for="Buyer.INN"></label>
+                        <input asp-for="Buyer.INN" />
+                        <span asp-validation-for="Buyer.INN"></span>
+                    </div>
+
+                    <div>
+                        <label asp-for="Buyer.FIO"></label>
+                        <input asp-for="Buyer.FIO" />
+                        <span asp-validation-for="Buyer.FIO"></span>
+                    </div>
+
+                    <div>
+                        <button type="submit">
+                            Сохранить
+                        </button>
+
+                        <a asp-page="Index">
+                            Назад
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

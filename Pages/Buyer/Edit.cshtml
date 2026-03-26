@@ -2,3 +2,40 @@
 @model JewelryStore.Pages.Buyer.EditModel
 @{
 }
+
+<div>
+    <div>
+        <div>
+            <div>
+                <h5>Редактирование покупателя</h5>
+            </div>
+            <div>
+                <form method="post">
+                    <input type="hidden" asp-for="Buyer.Id" />
+                    <div>
+                        <label asp-for="Buyer.INN"></label>
+                        <input asp-for="Buyer.INN" />
+                        <span asp-validation-for="Buyer.INN"></span>
+                    </div>
+                    <div>
+                        <label asp-for="Buyer.FIO"></label>
+                        <input asp-for="Buyer.FIO" />
+                        <span asp-validation-for="Buyer.FIO"></span>
+                    </div>
+                    <div>
+                        <a asp-page="Index">
+                            Назад
+                        </a>
+                        <button type="submit">
+                            Сохранить
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

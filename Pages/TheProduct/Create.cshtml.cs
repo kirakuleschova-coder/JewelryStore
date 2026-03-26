@@ -3,7 +3,7 @@ using JewelryStore.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace JewelryStore.Pages.Buyer
+namespace JewelryStore.Pages.Decoration
 {
     public class CreateModel : PageModel
     {
@@ -15,18 +15,19 @@ namespace JewelryStore.Pages.Buyer
         }
 
         [BindProperty]
-        public JewelryStore.Model.Buyer Buyer { get; set; }
+        public JewelryStore.Model.TheProduct TheProduct { get; set; }
+
         public void OnGet() { }
+
         public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
                 return Page();
 
-            _context.Buyers.Add(Buyer);
+            _context.TheProducts.Add(TheProduct);
             _context.SaveChanges();
 
             return RedirectToPage("Index");
         }
-
     }
 }

@@ -1,0 +1,40 @@
+﻿@page "{id:int}"
+@model JewelryStore.Pages.Decoration.EditModel
+@{
+}
+
+
+<h1>Редактировать украшение</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="TheProduct.Id" />
+
+    <div>
+        <label>Название</label><br />
+        <input asp-for="TheProduct.Title" />
+    </div>
+
+    <div>
+        <label>Цена</label><br />
+        <input asp-for="TheProduct.Price" />
+    </div>
+
+    <div>
+        <label>Продукт</label><br />
+        <input asp-for="TheProduct.Product" type="number" />
+    </div>
+
+    <div>
+        <label>Проба</label><br />
+        <input asp-for="TheProduct.Test" type="number" />
+    </div>
+
+    <div>
+        <label>Дата изготовления</label><br />
+        <input asp-for="TheProduct.ProductionDate" type="number" />
+    </div>
+
+    <button type="submit">Сохранить</button>
+</form>
+
+<a asp-page="Index">Назад</a>

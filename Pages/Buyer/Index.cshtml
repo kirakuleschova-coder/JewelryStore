@@ -2,3 +2,51 @@
 @model JewelryStore.Pages.Buyer.IndexModel
 @{
 }
+
+<div>
+    <div>
+        <div>
+            <div>
+                <h5>Список покупателей</h5>
+                <a asp-page="Create">
+                    + Добавить покупателя
+                </a>
+            </div>
+            <div>
+                <div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ИНН</th>
+                                <th>ФИО</th>
+                                <th>Действия</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var buyer in Model.Buyers)
+                            {
+                                <tr>
+                                    <td>@buyer.INN</td>
+                                    <td>
+                                        <span>@buyer.FIO</span>
+                                    </td>
+                                    <td>
+                                        <a asp-page="Details" asp-route-id="@buyer.Id">
+                                            Открыть
+                                        </a>
+                                        <a asp-page="Edit" asp-route-id="@buyer.Id">
+                                            Изменить
+                                        </a>
+                                        <a asp-page="Delete" asp-route-id="@buyer.Id">
+                                            Удалить
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

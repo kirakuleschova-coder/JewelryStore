@@ -3,7 +3,7 @@ using JewelryStore.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace JewelryStore.Pages.Buyer
+namespace JewelryStore.Pages.Decoration
 {
     public class DeleteModel : PageModel
     {
@@ -15,13 +15,13 @@ namespace JewelryStore.Pages.Buyer
         }
 
         [BindProperty]
-        public JewelryStore.Model.Buyer Buyer { get; set; }
+        public JewelryStore.Model.TheProduct TheProduct { get; set; }
 
         public IActionResult OnGet(int id)
         {
-            Buyer = _context.Buyers.Find(id);
+            TheProduct = _context.TheProducts.Find(id);
 
-            if (Buyer == null)
+            if (TheProduct == null)
                 return NotFound();
 
             return Page();
@@ -29,11 +29,11 @@ namespace JewelryStore.Pages.Buyer
 
         public IActionResult OnPost()
         {
-            var student = _context.Buyers.Find(Buyer.Id);
+            var book = _context.TheProducts.Find(TheProduct.Id);
 
-            if (student != null)
+            if (book != null)
             {
-                _context.Buyers.Remove(student);
+                _context.TheProducts.Remove(book);
                 _context.SaveChanges();
             }
 

@@ -1,0 +1,41 @@
+﻿@page
+@model JewelryStore.Pages.Decoration.IndexModel
+@{
+}
+
+
+<h1>Список украшений</h1>
+
+<p>
+    <a asp-page="Create">Добавить новое украшение</a>
+</p>
+
+<table border="1" cellpadding="5">
+    <thead>
+        <tr>
+            <th>Название</th>
+            <th>Цена</th>
+            <th>Продукт</th>
+            <th>Проба</th>
+            <th>Год изготовления</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var TheProduct in Model.TheProducts)
+        {
+            <tr>
+                <td>@TheProduct.Title</td>
+                <td>@TheProduct.Price</td>
+                <td>@TheProduct.Product</td>
+                <td>@TheProduct.Test</td>
+                <td>@TheProduct.ProductionDate</td>
+                <td>
+                    <a asp-page="Details" asp-route-id="@TheProduct.Id">Открыть</a>
+                    <a asp-page="Edit" asp-route-id="@TheProduct.Id">Изменить</a>
+                    <a asp-page="Delete" asp-route-id="@TheProduct.Id">Удалить</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

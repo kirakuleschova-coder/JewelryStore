@@ -3,7 +3,7 @@ using JewelryStore.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace JewelryStore.Pages.Buyer
+namespace JewelryStore.Pages.Decoration
 {
     public class DetailsModel : PageModel
     {
@@ -14,13 +14,13 @@ namespace JewelryStore.Pages.Buyer
             _context = context;
         }
 
-        public JewelryStore.Model.Buyer Buyer { get; set; }
+        public JewelryStore.Model.TheProduct TheProduct { get; set; }
 
         public IActionResult OnGet(int id)
         {
-            Buyer = _context.Buyers.FirstOrDefault(s => s.Id == id);
+            TheProduct = _context.TheProducts.FirstOrDefault(b => b.Id == id);
 
-            if (Buyer == null)
+            if (TheProduct == null)
                 return NotFound();
 
             return Page();

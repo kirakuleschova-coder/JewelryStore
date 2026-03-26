@@ -1,4 +1,35 @@
-﻿@page
+﻿@page "{id:int}"
 @model JewelryStore.Pages.Buyer.DetailsModel
 @{
 }
+
+<div>
+    <div>
+        <div>
+            <div>
+                <h5>Информация о покупателе</h5>
+            </div>
+            <div>
+                <dl>
+                    <dt>ИНН</dt>
+                    <dd>@Model.Buyer.INN</dd>
+                    <dt>ФИО</dt>
+                    <dd>@Model.Buyer.FIO</dd>
+                </dl>
+            </div>
+            <div>
+                <a asp-page="Index">
+                    Назад
+                </a>
+                <div>
+                    <a asp-page="Edit" asp-route-id="@Model.Buyer.Id">
+                        Редактировать
+                    </a>
+                    <a asp-page="Delete" asp-route-id="@Model.Buyer.Id">
+                        Удалить
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
