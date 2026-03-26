@@ -7,40 +7,36 @@
     <div class="row">
         <div class="col-twelve">
             <div class="card">
-                <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
-                    <h5 class="mb-zero">Список покупателей</h5>
-                    <a asp-page="Create" class="btn btn-light btn-sm">+ Добавить покупателя</a>
+                <div class="card-header">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="mb-zero">Список покупателей</h5>
+                        <a asp-page="Create" class="btn btn-primary btn-sm">+ Добавить</a>
+                    </div>
                 </div>
                 <div class="card-body p-zero">
-                    <div class="table-responsive">
-                        <table class="table table-hover mb-zero">
-                            <thead class="table-light">
+                    <table class="table mb-zero">
+                        <thead>
+                            <tr>
+                                <th>ИНН</th>
+                                <th>ФИО</th>
+                                <th>Действия</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var buyer in Model.Buyers)
+                            {
                                 <tr>
-                                    <th>ИНН</th>
-                                    <th>ФИО</th>
-                                    <th>Действия</th>
+                                    <td>@buyer.INN</td>
+                                    <td>@buyer.FIO</td>
+                                    <td>
+                                        <a asp-page="Details" asp-route-id="@buyer.Id" class="btn btn-light btn-sm">Открыть</a>
+                                        <a asp-page="Edit" asp-route-id="@buyer.Id" class="btn btn-light btn-sm">Изменить</a>
+                                        <a asp-page="Delete" asp-route-id="@buyer.Id" class="btn btn-light btn-sm">Удалить</a>
+                                    </td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var buyer in Model.Buyers)
-                                {
-                                    <tr>
-                                        <td>@buyer.INN</td>
-                                        <td>
-                                            <span>@buyer.FIO</span>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex gap-two">
-                                                <a asp-page="Details" asp-route-id="@buyer.Id" class="btn btn-info btn-sm">Открыть</a>
-                                                <a asp-page="Edit" asp-route-id="@buyer.Id" class="btn btn-warning btn-sm">Изменить</a>
-                                                <a asp-page="Delete" asp-route-id="@buyer.Id" class="btn btn-danger btn-sm">Удалить</a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
-                    </div>
+                            }
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

@@ -7,24 +7,21 @@
     <div class="row justify-content-center">
         <div class="col-md-six">
             <div class="card">
-                <div class="card-header bg-primary text-white">
+                <div class="card-header">
                     <h5 class="mb-zero">Информация о покупателе</h5>
                 </div>
                 <div class="card-body">
-                    <dl class="row mb-three">
-                        <dt class="col-sm-three fw-bold">ИНН</dt>
-                        <dd class="col-sm-nine">@Model.Buyer.INN</dd>
+                    <div class="mb-three">
+                        <strong>ИНН:</strong> @Model.Buyer.INN
+                    </div>
+                    <div class="mb-three">
+                        <strong>ФИО:</strong> @Model.Buyer.FIO
+                    </div>
 
-                        <dt class="col-sm-three fw-bold">ФИО</dt>
-                        <dd class="col-sm-nine">@Model.Buyer.FIO</dd>
-                    </dl>
-
-                    <div class="d-flex gap-two justify-content-between align-items-center">
-                        <a asp-page="Index" class="btn btn-secondary">Назад</a>
-                        <div class="d-flex gap-two">
-                            <a asp-page="Edit" asp-route-id="@Model.Buyer.Id" class="btn btn-warning">Редактировать</a>
-                            <a asp-page="Delete" asp-route-id="@Model.Buyer.Id" class="btn btn-danger">Удалить</a>
-                        </div>
+                    <div class="d-flex gap-two">
+                        <a asp-page="Index" class="btn btn-light">Назад</a>
+                        <a asp-page="Edit" asp-route-id="@Model.Buyer.Id" class="btn btn-primary">Редактировать</a>
+                        <a asp-page="Delete" asp-route-id="@Model.Buyer.Id" class="btn btn-danger">Удалить</a>
                     </div>
                 </div>
             </div>

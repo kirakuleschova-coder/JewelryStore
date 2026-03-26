@@ -5,21 +5,21 @@
     <div class="row justify-content-center">
         <div class="col-md-six">
             <div class="card">
-                <div class="card-header bg-warning text-dark">
+                <div class="card-header">
                     <h5 class="mb-zero">Подтверждение удаления</h5>
                 </div>
                 <div class="card-body">
                     <p class="mb-three">Вы действительно хотите удалить покупателя:</p>
 
-                    <div class="alert alert-light border border-lightgray">
-                        <strong class="d-block mb-one">@Model.Buyer.INN</strong>
-                        <small class="text-secondary">@Model.Buyer.FIO</small>
+                    <div class="mb-three">
+                        <strong>ИНН: @Model.Buyer.INN</strong><br />
+                        <span>ФИО: @Model.Buyer.FIO</span>
                     </div>
 
                     <form method="post">
                         <input type="hidden" asp-for="Buyer.Id" />
                         <div class="d-flex gap-two">
-                            <a asp-page="Index" class="btn btn-secondary">Отмена</a>
+                            <a asp-page="Index" class="btn btn-light">Отмена</a>
                             <button type="submit" class="btn btn-danger">Удалить</button>
                         </div>
                     </form>
