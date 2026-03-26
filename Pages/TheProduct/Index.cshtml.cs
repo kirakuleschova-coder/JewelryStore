@@ -16,9 +16,6 @@ namespace JewelryStore.Pages.Decoration
 
         public List<JewelryStore.Model.TheProduct> TheProducts { get; set; }
 
-        public void OnGet()
-        {
-            TheProducts = _context.TheProducts.ToList();
-        }
+        public void OnGet() => TheProducts = _context.TheProducts.ToList();
     }
 }
