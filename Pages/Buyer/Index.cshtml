@@ -29,9 +29,13 @@
                                     <td>@buyer.INN</td>
                                     <td>@buyer.FIO</td>
                                     <td>
-                                        <a asp-page="Details" asp-route-id="@buyer.Id" class="btn btn-light btn-sm">Открыть</a>
-                                        <a asp-page="Edit" asp-route-id="@buyer.Id" class="btn btn-light btn-sm">Изменить</a>
-                                        <a asp-page="Delete" asp-route-id="@buyer.Id" class="btn btn-light btn-sm">Удалить</a>
+                                        <a asp-page="Details" asp-route-id="@buyer.Id" class="btn btn-info btn-sm">
+                                            <i class="bi bi-eye"></i> Открыть
+                                        </a>
+                                        <a asp-page="Edit" asp-route-id="@buyer.Id" class="btn btn-sm btn-primary">
+                                            <i class="bi bi-pencil"></i> Изменить
+                                        </a>
+                                        <a asp-page="Delete" asp-route-id="@buyer.Id" class="btn btn-sm btn-danger"> <i class="bi bi-trash"></i> Удалить</a>
                                     </td>
                                 </tr>
                             }
