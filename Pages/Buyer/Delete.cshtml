@@ -1,26 +1,36 @@
 ﻿@page "{id:int}"
 @model JewelryStore.Pages.Buyer.DeleteModel
 
-<div class="container mt-four">
+<div class="container mt-4">
     <div class="row justify-content-center">
-        <div class="col-md-six">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="mb-zero">Подтверждение удаления</h5>
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-danger text-white">
+                    <h5 class="mb-0">
+                        <i class="bi bi-exclamation-triangle"></i> Подтверждение удаления
+                    </h5>
                 </div>
                 <div class="card-body">
-                    <p class="mb-three">Вы действительно хотите удалить покупателя:</p>
+                    <div class="alert alert-warning">
+                        <i class="bi bi-info-circle"></i> Вы действительно хотите удалить покупателя?
+                    </div>
 
-                    <div class="mb-three">
-                        <strong>ИНН: @Model.Buyer.INN</strong><br />
-                        <span>ФИО: @Model.Buyer.FIO</span>
+                    <div class="card mb-3 border-danger">
+                        <div class="card-body">
+                            <p class="mb-1"><strong>ИНН:</strong> @Model.Buyer.INN</p>
+                            <p class="mb-0"><strong>ФИО:</strong> @Model.Buyer.FIO</p>
+                        </div>
                     </div>
 
                     <form method="post">
                         <input type="hidden" asp-for="Buyer.Id" />
-                        <div class="d-flex gap-two">
-                            <a asp-page="Index" class="btn btn-light">Отмена</a>
-                            <button type="submit" class="btn btn-danger">Удалить</button>
+                        <div class="d-flex gap-2">
+                            <a asp-page="Index" class="btn btn-secondary">
+                                <i class="bi bi-x-circle"></i> Отмена
+                            </a>
+                            <button type="submit" class="btn btn-danger">
+                                <i class="bi bi-trash"></i> Удалить
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -28,3 +38,4 @@
         </div>
     </div>
 </div>
+

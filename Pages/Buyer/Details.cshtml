@@ -3,25 +3,40 @@
 @{
 }
 
-<div class="container mt-four">
+<div class="container mt-4">
     <div class="row justify-content-center">
-        <div class="col-md-six">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="mb-zero">Информация о покупателе</h5>
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">
+                        <i class="bi bi-person-badge"></i> Информация о покупателе
+                    </h5>
                 </div>
                 <div class="card-body">
-                    <div class="mb-three">
-                        <strong>ИНН:</strong> @Model.Buyer.INN
-                    </div>
-                    <div class="mb-three">
-                        <strong>ФИО:</strong> @Model.Buyer.FIO
+                    <div class="text-center mb-4">
+                        <i class="bi bi-person-circle" style="font-size: 4rem; color: #0d6efd;"></i>
                     </div>
 
-                    <div class="d-flex gap-two">
-                        <a asp-page="Index" class="btn btn-light">Назад</a>
-                        <a asp-page="Edit" asp-route-id="@Model.Buyer.Id" class="btn btn-primary">Редактировать</a>
-                        <a asp-page="Delete" asp-route-id="@Model.Buyer.Id" class="btn btn-danger">Удалить</a>
+                    <div class="mb-3 p-3 border rounded bg-light">
+                        <strong><i class="bi bi-card-text"></i> ИНН:</strong>
+                        <p class="mt-2 fs-5 font-monospace mb-0">@Model.Buyer.INN</p>
+                    </div>
+
+                    <div class="mb-3 p-3 border rounded bg-light">
+                        <strong><i class="bi bi-person"></i> ФИО:</strong>
+                        <p class="mt-2 fs-5 mb-0">@Model.Buyer.FIO</p>
+                    </div>
+
+                    <div class="d-flex gap-2 mt-4">
+                        <a asp-page="Index" class="btn btn-secondary">
+                            <i class="bi bi-arrow-left"></i> Назад
+                        </a>
+                        <a asp-page="Edit" asp-route-id="@Model.Buyer.Id" class="btn btn-primary">
+                            <i class="bi bi-pencil"></i> Редактировать
+                        </a>
+                        <a asp-page="Delete" asp-route-id="@Model.Buyer.Id" class="btn btn-danger">
+                            <i class="bi bi-trash"></i> Удалить
+                        </a>
                     </div>
                 </div>
             </div>
@@ -29,3 +44,13 @@
     </div>
 </div>
 
+<style>
+    .font-monospace {
+        font-family: monospace;
+        font-size: 1.1rem;
+        background-color: #e9ecef;
+        padding: 0.5rem;
+        border-radius: 6px;
+        display: inline-block;
+    }
+</style>

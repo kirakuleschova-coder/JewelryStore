@@ -3,30 +3,36 @@
 @{
 }
 
-<div class="container mt-four">
+<div class="container mt-4">
     <div class="row justify-content-center">
-        <div class="col-md-six">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="mb-zero">Добавить покупателя</h5>
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">
+                        <i class="bi bi-person-plus"></i> Добавить покупателя
+                    </h5>
                 </div>
                 <div class="card-body">
                     <form method="post">
-                        <div class="mb-three">
-                            <label asp-for="Buyer.INN" class="form-label">ИНН</label>
-                            <input asp-for="Buyer.INN" class="form-control" />
+                        <div class="mb-3">
+                            <label asp-for="Buyer.INN" class="form-label fw-bold">ИНН</label>
+                            <input asp-for="Buyer.INN" class="form-control" placeholder="Введите ИНН покупателя" />
                             <span asp-validation-for="Buyer.INN" class="text-danger"></span>
                         </div>
 
-                        <div class="mb-three">
-                            <label asp-for="Buyer.FIO" class="form-label">ФИО</label>
-                            <input asp-for="Buyer.FIO" class="form-control" />
+                        <div class="mb-3">
+                            <label asp-for="Buyer.FIO" class="form-label fw-bold">ФИО</label>
+                            <input asp-for="Buyer.FIO" class="form-control" placeholder="Введите ФИО покупателя" />
                             <span asp-validation-for="Buyer.FIO" class="text-danger"></span>
                         </div>
 
-                        <div class="d-flex gap-two">
-                            <button type="submit" class="btn btn-primary">Сохранить</button>
-                            <a asp-page="Index" class="btn btn-light">Назад</a>
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-success">
+                                <i class="bi bi-save"></i> Сохранить
+                            </button>
+                            <a asp-page="Index" class="btn btn-secondary">
+                                <i class="bi bi-arrow-left"></i> Назад
+                            </a>
                         </div>
                     </form>
                 </div>
