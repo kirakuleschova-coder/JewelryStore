@@ -12,12 +12,21 @@
                 </div>
                 <div class="card-body">
                     <div class="alert alert-warning">
-                        <i class="bi bi-info-circle"></i> Вы действительно хотите удалить покупателя?
+                        <i class="bi bi-info-circle"></i>
+                        <strong>Внимание!</strong> Это действие нельзя отменить.
                     </div>
 
-                    <div class="card mb-3 border-danger">
+                    <h5 class="text-center mb-4">
+                        <i class="bi bi-question-circle text-danger"></i>
+                        Вы действительно хотите удалить этого покупателя?
+                    </h5>
+
+                    <div class="card mb-4 border-danger">
                         <div class="card-body">
-                            <p class="mb-1"><strong>ИНН:</strong> @Model.Buyer.INN</p>
+                            <div class="text-center mb-3">
+                                <i class="bi bi-person-circle" style="font-size: 3rem; color: #dc3545;"></i>
+                            </div>
+                            <p class="mb-2"><strong>ИНН:</strong> @Model.Buyer.INN</p>
                             <p class="mb-0"><strong>ФИО:</strong> @Model.Buyer.FIO</p>
                         </div>
                     </div>
@@ -25,10 +34,10 @@
                     <form method="post">
                         <input type="hidden" asp-for="Buyer.Id" />
                         <div class="d-flex gap-2">
-                            <a asp-page="Index" class="btn btn-secondary">
+                            <a asp-page="Index" class="btn btn-secondary flex-fill">
                                 <i class="bi bi-x-circle"></i> Отмена
                             </a>
-                            <button type="submit" class="btn btn-danger">
+                            <button type="submit" class="btn btn-danger flex-fill">
                                 <i class="bi bi-trash"></i> Удалить
                             </button>
                         </div>
@@ -39,3 +48,20 @@
     </div>
 </div>
 
+<style>
+    .btn {
+        transition: all 0.2s ease;
+    }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+    .card.border-danger {
+        transition: box-shadow 0.2s ease;
+    }
+
+        .card.border-danger:hover {
+            box-shadow: 0 5px 15px rgba(220, 53, 69, 0.2);
+        }
+</style>

@@ -45,8 +45,24 @@
 </div>
 
 <style>
+    .btn {
+        transition: all 0.2s ease;
+    }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+    .card {
+        transition: box-shadow 0.2s ease;
+    }
+
+        .card:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+        }
+
     .font-monospace {
-        font-family: monospace;
+        font-family: 'Courier New', monospace;
         font-size: 1.1rem;
         background-color: #e9ecef;
         padding: 0.5rem;

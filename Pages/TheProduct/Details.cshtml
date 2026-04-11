@@ -3,122 +3,17 @@
 @{
 }
 
-<div class="container mt-4">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card shadow-sm border-0">
-                <div class="card-header bg-info text-white">
-                    <h4 class="mb-0">
-                        <i class="bi bi-info-circle"></i> Информация об украшении
-                    </h4>
-                </div>
-                <div class="card-body">
-                    <!-- Иконка-заглушка -->
-                    <div class="text-center mb-4">
-                        <div class="bg-gradient-info rounded-circle p-4 d-inline-block shadow-sm">
-                            <i class="bi bi-gem" style="font-size: 4rem; color: white;"></i>
-                        </div>
-                    </div>
 
-                    <!-- Детальная информация -->
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <div class="info-card p-3 border rounded bg-light h-100">
-                                <div class="d-flex align-items-center mb-2">
-                                    <i class="bi bi-gem text-primary fs-4 me-2"></i>
-                                    <strong class="text-secondary">Название:</strong>
-                                </div>
-                                <p class="fs-5 fw-bold text-primary mb-0 ps-4">@Model.TheProduct.Title</p>
-                            </div>
-                        </div>
+<h1>Информация о украшении</h1>
 
-                        <div class="col-md-6">
-                            <div class="info-card p-3 border rounded bg-light h-100">
-                                <div class="d-flex align-items-center mb-2">
-                                    <i class="bi bi-tag text-success fs-4 me-2"></i>
-                                    <strong class="text-secondary">Цена:</strong>
-                                </div>
-                                <p class="fs-4 fw-bold text-success mb-0 ps-4">@Model.TheProduct.Price.ToString("N0") руб.</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="info-card p-3 border rounded bg-light h-100">
-                                <div class="d-flex align-items-center mb-2">
-                                    <i class="bi bi-box text-info fs-4 me-2"></i>
-                                    <strong class="text-secondary">Продукт:</strong>
-                                </div>
-                                <p class="fs-5 fw-bold mb-0 ps-4">
-                                    <span class="badge bg-info text-dark fs-6">№ @Model.TheProduct.Product</span>
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="info-card p-3 border rounded bg-light h-100">
-                                <div class="d-flex align-items-center mb-2">
-                                    <i class="bi bi-gem text-warning fs-4 me-2"></i>
-                                    <strong class="text-secondary">Проба:</strong>
-                                </div>
-                                <p class="fs-5 fw-bold mb-0 ps-4">
-                                    <span class="badge bg-warning text-dark fs-6">@Model.TheProduct.Test</span>
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="col-12">
-                            <div class="info-card p-3 border rounded bg-light">
-                                <div class="d-flex align-items-center mb-2">
-                                    <i class="bi bi-calendar text-secondary fs-4 me-2"></i>
-                                    <strong class="text-secondary">Дата изготовления:</strong>
-                                </div>
-                                <p class="fs-5 fw-bold mb-0 ps-4">
-                                    <i class="bi bi-calendar-event"></i> @Model.TheProduct.ProductionDate год
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Кнопки действий -->
-                    <div class="d-flex gap-3 justify-content-center mt-5 pt-3 border-top">
-                        <a asp-page="Index" class="btn btn-secondary btn-lg px-4">
-                            <i class="bi bi-arrow-left"></i> Назад к списку
-                        </a>
-                        <a asp-page="Edit" asp-route-id="@Model.TheProduct.Id" class="btn btn-primary btn-lg px-4">
-                            <i class="bi bi-pencil"></i> Редактировать
-                        </a>
-                        <a asp-page="Delete" asp-route-id="@Model.TheProduct.Id" class="btn btn-danger btn-lg px-4">
-                            <i class="bi bi-trash"></i> Удалить
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div>
+    <p><strong>Название:</strong> @Model.TheProduct.Title</p>
+    <p><strong>Цена:</strong> @Model.TheProduct.Price</p>
+    <p><strong>Продукт:</strong> @Model.TheProduct.Product</p>
+    <p><strong>Проба:</strong> @Model.TheProduct.Test</p>
+    <p><strong>Дата изготовления:</strong> @Model.TheProduct.ProductionDate</p>
 </div>
 
-<style>
-    /* Анимация при наведении на карточки информации */
-    .info-card {
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-        .info-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-    /* Градиентный фон для иконки */
-    .bg-gradient-info {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    }
-
-    /* Анимация для кнопок */
-    .btn {
-        transition: all 0.2s ease;
-    }
-
-        .btn:hover {
-            transform: translateY(-2px);
-        }
-</style>
+<p>
+    <a asp-page="Index">Назад к списку</a>
+</p>
