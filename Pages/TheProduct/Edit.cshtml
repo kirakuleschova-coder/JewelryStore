@@ -3,38 +3,178 @@
 @{
 }
 
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-warning text-dark">
+                    <h4 class="mb-0">
+                        <i class="bi bi-pencil-square"></i> Редактировать украшение
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <!-- Блок вывода общих ошибок -->
+                    <div asp-validation-summary="All" class="alert alert-danger" role="alert"></div>
 
-<h1>Редактировать украшение</h1>
+                    <!-- Информация о редактировании -->
+                    <div class="alert alert-info border-0 small">
+                        <div class="d-flex align-items-start">
+                            <i class="bi bi-info-circle text-primary fs-4 me-3"></i>
+                            <div>
+                                <strong>Редактирование данных</strong><br />
+                                Измените необходимые поля и нажмите "Сохранить"
+                            </div>
+                        </div>
+                    </div>
 
-<form method="post">
-    <input type="hidden" asp-for="TheProduct.Id" />
+                    <form method="post">
+                        <input type="hidden" asp-for="TheProduct.Id" />
 
-    <div>
-        <label>Название</label><br />
-        <input asp-for="TheProduct.Title" />
+                        <div class="mb-3">
+                            <label asp-for="TheProduct.Title" class="form-label fw-bold">
+                                <i class="bi bi-gem text-primary"></i> Название
+                            </label>
+                            <input asp-for="TheProduct.Title" class="form-control"
+                                   placeholder="Например: Кольцо Золотое" />
+                            <span asp-validation-for="TheProduct.Title" class="text-danger"></span>
+                            <div class="form-text">
+                                <i class="bi bi-info-circle"></i> Введите название украшения
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="TheProduct.Price" class="form-label fw-bold">
+                                <i class="bi bi-tag text-success"></i> Цена (руб.)
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-white">₽</span>
+                                <input asp-for="TheProduct.Price" class="form-control"
+                                       placeholder="0.00" />
+                            </div>
+                            <span asp-validation-for="TheProduct.Price" class="text-danger"></span>
+                            <div class="form-text">
+                                <i class="bi bi-info-circle"></i> Введите цену в рублях
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="TheProduct.Product" class="form-label fw-bold">
+                                <i class="bi bi-box text-info"></i> Продукт
+                            </label>
+                            <input asp-for="TheProduct.Product" type="number" class="form-control"
+                                   placeholder="Например: 123" />
+                            <span asp-validation-for="TheProduct.Product" class="text-danger"></span>
+                            <div class="form-text">
+                                <i class="bi bi-info-circle"></i> Введите номер продукта (от 1 до 100)
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="TheProduct.Test" class="form-label fw-bold">
+                                <i class="bi bi-gem text-warning"></i> Проба
+                            </label>
+                            <select asp-for="TheProduct.Test" class="form-select">
+                                <option value="375">375 проба</option>
+                                <option value="500">500 проба</option>
+                                <option value="585">585 проба</option>
+                                <option value="750">750 проба</option>
+                                <option value="875">875 проба</option>
+                                <option value="916">916 проба</option>
+                                <option value="999">999 проба</option>
+                            </select>
+                            <span asp-validation-for="TheProduct.Test" class="text-danger"></span>
+                            <div class="form-text">
+                                <i class="bi bi-info-circle"></i> Выберите пробу металла
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="TheProduct.ProductionDate" class="form-label fw-bold">
+                                <i class="bi bi-calendar text-secondary"></i> Дата изготовления (год)
+                            </label>
+                            <input asp-for="TheProduct.ProductionDate" type="number" class="form-control"
+                                   placeholder="ГГГГ" min="1900" max="2026" />
+                            <span asp-validation-for="TheProduct.ProductionDate" class="text-danger"></span>
+                            <div class="form-text">
+                                <i class="bi bi-info-circle"></i> Введите год изготовления (1900-2026)
+                            </div>
+                        </div>
+
+                        <!-- Карточка с ID украшения -->
+                        <div class="alert alert-secondary border-0 small mt-4">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <i class="bi bi-hash"></i> ID украшения:
+                                    <strong>@Model.TheProduct.Id</strong>
+                                </div>
+                                <div>
+                                    <i class="bi bi-clock-history"></i>
+                                    <small>Редактирование записи</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex gap-2 mt-4">
+                            <button type="submit" class="btn btn-primary flex-fill">
+                                <i class="bi bi-save"></i> Сохранить
+                            </button>
+                            <a asp-page="Index" class="btn btn-secondary flex-fill">
+                                <i class="bi bi-arrow-left"></i> Назад
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Подсказка по форматам -->
+            <div class="card mt-3 bg-light border-0">
+                <div class="card-body text-center text-muted">
+                    <small>
+                        <i class="bi bi-info-circle"></i>
+                        Все поля обязательны для заполнения
+                    </small>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 
-    <div>
-        <label>Цена</label><br />
-        <input asp-for="TheProduct.Price" />
-    </div>
+<style>
+    /* Стили для полей ввода при фокусе */
+    .form-control:focus, .form-select:focus {
+        border-color: #ffc107;
+        box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25);
+    }
 
-    <div>
-        <label>Продукт</label><br />
-        <input asp-for="TheProduct.Product" type="number" />
-    </div>
+    /* Анимация для кнопок */
+    .btn {
+        transition: all 0.2s ease;
+    }
 
-    <div>
-        <label>Проба</label><br />
-        <input asp-for="TheProduct.Test" type="number" />
-    </div>
+        .btn:hover {
+            transform: translateY(-2px);
+        }
 
-    <div>
-        <label>Дата изготовления</label><br />
-        <input asp-for="TheProduct.ProductionDate" type="number" />
-    </div>
+    /* Анимация для карточки */
+    .card {
+        transition: box-shadow 0.2s ease;
+    }
 
-    <button type="submit">Сохранить</button>
-</form>
+        .card:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+        }
 
-<a asp-page="Index">Назад</a>
+    /* Стили для input-group */
+    .input-group-text {
+        background-color: #f8f9fa;
+        border-right: none;
+    }
+
+    .input-group .form-control {
+        border-left: none;
+    }
+</style>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

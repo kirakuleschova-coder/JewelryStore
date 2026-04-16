@@ -6,46 +6,136 @@
 <div class="container mt-4">
     <!-- Заголовок и кнопка добавления -->
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h1 class="mb-0">Наши украшения</h1>
-        <a asp-page="Create" class="btn btn-primary btn-lg">
+        <div>
+            <h1 class="mb-0">
+                <i class="bi bi-gem text-primary"></i> Наши украшения
+            </h1>
+            <p class="text-muted mt-2">Уникальные изделия ручной работы</p>
+        </div>
+        <a asp-page="Create" class="btn btn-primary btn-lg shadow-sm">
             <i class="bi bi-plus-circle"></i> Добавить украшение
         </a>
     </div>
 
+    <!-- Счётчик украшений -->
+    <div class="alert alert-info mb-4 d-flex justify-content-between align-items-center">
+        <span>
+            <i class="bi bi-info-circle"></i> Всего украшений:
+            <strong>@Model.TheProducts.Count()</strong>
+        </span>
+        <span class="badge bg-primary rounded-pill">
+            <i class="bi bi-grid-3x3-gap-fill"></i> Карточки
+        </span>
+    </div>
+
     <!-- Сетка карточек -->
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-        @foreach (var TheProduct in Model.TheProducts)
-        {
-            <div class="col">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title text-primary">
-                            <i class="bi bi-gem"></i> @TheProduct.Title
-                        </h5>
-                        <hr />
-                        <p class="card-text">
-                            <strong><i class="bi bi-tag"></i> Цена:</strong>
-                            <span class="text-success fw-bold">@TheProduct.Price руб.</span><br />
-                            <strong><i class="bi bi-box"></i> Продукт:</strong> @TheProduct.Product<br />
-                            <strong><i class="bi bi-gem"></i> Проба:</strong> @TheProduct.Test<br />
-                            <strong><i class="bi bi-calendar"></i> Год изготовления:</strong> @TheProduct.ProductionDate
-                        </p>
-                    </div>
-                    <div class="card-footer bg-transparent">
-                        <div class="d-flex gap-2">
-                            <a asp-page="Details" asp-route-id="@TheProduct.Id" class="btn btn-sm btn-info flex-fill">
-                                <i class="bi bi-eye"></i> Открыть
-                            </a>
-                            <a asp-page="Edit" asp-route-id="@TheProduct.Id" class="btn btn-sm btn-primary flex-fill">
-                                <i class="bi bi-pencil"></i> Изменить
-                            </a>
-                            <a asp-page="Delete" asp-route-id="@TheProduct.Id" class="btn btn-sm btn-danger flex-fill">
-                                <i class="bi bi-trash"></i> Удалить
-                            </a>
+    @if (Model.TheProducts.Any())
+    {
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            @foreach (var TheProduct in Model.TheProducts)
+            {
+                <div class="col">
+                    <div class="card h-100 shadow-sm border-0 card-hover">
+                        <!-- Иконка-заглушка -->
+                        <div class="card-img-top bg-gradient-primary text-center py-4">
+                            <i class="bi bi-gem" style="font-size: 3rem; color: white;"></i>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h5 class="card-title text-primary mb-0">
+                                    <i class="bi bi-gem"></i> @TheProduct.Title
+                                </h5>
+                                <span class="badge bg-secondary rounded-pill">#@TheProduct.Id</span>
+                            </div>
+                            <hr />
+                            <div class="card-text">
+                                <div class="mb-2">
+                                    <strong><i class="bi bi-tag text-success"></i> Цена:</strong>
+                                    <span class="text-success fw-bold fs-5">@TheProduct.Price.ToString("N0") руб.</span>
+                                </div>
+                                <div class="mb-2">
+                                    <strong><i class="bi bi-box text-info"></i> Продукт:</strong>
+                                    <span class="badge bg-info text-dark">@TheProduct.Product</span>
+                                </div>
+                                <div class="mb-2">
+                                    <strong><i class="bi bi-gem text-warning"></i> Проба:</strong>
+                                    <span class="badge bg-warning text-dark">@TheProduct.Test</span>
+                                </div>
+                                <div>
+                                    <strong><i class="bi bi-calendar text-secondary"></i> Год изготовления:</strong>
+                                    <span class="badge bg-light text-dark border">@TheProduct.ProductionDate</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-3">
+                            <div class="d-flex gap-2">
+                                <a asp-page="Details" asp-route-id="@TheProduct.Id" class="btn btn-sm btn-info flex-fill">
+                                    <i class="bi bi-eye"></i> Открыть
+                                </a>
+                                <a asp-page="Edit" asp-route-id="@TheProduct.Id" class="btn btn-sm btn-primary flex-fill">
+                                    <i class="bi bi-pencil"></i> Изменить
+                                </a>
+                                <a asp-page="Delete" asp-route-id="@TheProduct.Id" class="btn btn-sm btn-danger flex-fill">
+                                    <i class="bi bi-trash"></i> Удалить
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
+            }
+        </div>
+    }
+    else
+    {
+        <!-- Пустое состояние -->
+        <div class="text-center py-5">
+            <div class="alert alert-info">
+                <i class="bi bi-emoji-frown" style="font-size: 3rem;"></i>
+                <h3 class="mt-3">Пока нет украшений</h3>
+                <p>Добавьте первое украшение, нажав на кнопку выше</p>
+                <a asp-page="Create" class="btn btn-primary mt-2">
+                    <i class="bi bi-plus-circle"></i> Добавить украшение
+                </a>
             </div>
-        }
-    </div>
+        </div>
+    }
 </div>
+
+<style>
+    /* Плавная анимация при наведении на карточку */
+    .card-hover {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15) !important;
+        }
+
+    /* Градиентный фон для заглушки изображения */
+    .bg-gradient-primary {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 8px 8px 0 0;
+    }
+
+    /* Анимация для кнопок при наведении */
+    .btn {
+        transition: all 0.2s ease;
+    }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+    /* Стили для бейджей */
+    .badge {
+        font-size: 0.85rem;
+        padding: 0.35em 0.65em;
+    }
+
+    /* Анимация для карточки */
+    .card {
+        transition: box-shadow 0.2s ease;
+    }
+</style>

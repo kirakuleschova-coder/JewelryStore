@@ -3,18 +3,108 @@
 @{
 }
 
-<h1>Удалить украшение</h1>
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-danger text-white">
+                    <h4 class="mb-0">
+                        <i class="bi bi-exclamation-triangle"></i> Удалить украшение
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <!-- Предупреждение -->
+                    <div class="alert alert-warning">
+                        <i class="bi bi-exclamation-circle"></i>
+                        <strong>Внимание!</strong> Это действие нельзя отменить.
+                    </div>
 
-<h3>Вы уверены?</h3>
+                    <!-- Вопрос -->
+                    <h5 class="text-center mb-4">
+                        <i class="bi bi-question-circle text-danger"></i>
+                        Вы уверены, что хотите удалить это украшение?
+                    </h5>
 
-<div>
-    <p><strong>@Model.TheProduct.Title</strong></p>
-    <p>@Model.TheProduct.Price</p>
+                    <!-- Карточка удаляемого украшения -->
+                    <div class="card mb-4 border-danger">
+                        <div class="card-body">
+                            <div class="text-center mb-3">
+                                <i class="bi bi-gem" style="font-size: 3rem; color: #dc3545;"></i>
+                            </div>
+                            <h5 class="card-title text-danger text-center">@Model.TheProduct.Title</h5>
+                            <hr />
+                            <div class="row">
+                                <div class="col-6">
+                                    <strong><i class="bi bi-tag"></i> Цена:</strong>
+                                </div>
+                                <div class="col-6 text-end">
+                                    <span class="fw-bold">@Model.TheProduct.Price.ToString("N0") руб.</span>
+                                </div>
+
+                                <div class="col-6 mt-2">
+                                    <strong><i class="bi bi-box"></i> Продукт:</strong>
+                                </div>
+                                <div class="col-6 mt-2 text-end">
+                                    <span class="badge bg-secondary">@Model.TheProduct.Product</span>
+                                </div>
+
+                                <div class="col-6 mt-2">
+                                    <strong><i class="bi bi-gem"></i> Проба:</strong>
+                                </div>
+                                <div class="col-6 mt-2 text-end">
+                                    <span class="badge bg-warning text-dark">@Model.TheProduct.Test</span>
+                                </div>
+
+                                <div class="col-6 mt-2">
+                                    <strong><i class="bi bi-calendar"></i> Год изготовления:</strong>
+                                </div>
+                                <div class="col-6 mt-2 text-end">
+                                    <span class="badge bg-info text-dark">@Model.TheProduct.ProductionDate</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Форма подтверждения -->
+                    <form method="post">
+                        <input type="hidden" asp-for="TheProduct.Id" />
+                        <div class="d-flex gap-3 justify-content-center">
+                            <a asp-page="Index" class="btn btn-secondary btn-lg px-4">
+                                <i class="bi bi-x-circle"></i> Отмена
+                            </a>
+                            <button type="submit" class="btn btn-danger btn-lg px-4">
+                                <i class="bi bi-trash"></i> Да, удалить
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<form method="post">
-    <input type="hidden" asp-for="TheProduct.Id" />
-    <button type="submit">Удалить</button>
-</form>
+<style>
+    /* Анимация для кнопок */
+    .btn {
+        transition: all 0.2s ease;
+    }
 
-<a asp-page="Index">Отмена</a>
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+    /* Анимация для карточки украшения */
+    .card.border-danger {
+        transition: box-shadow 0.2s ease;
+    }
+
+        .card.border-danger:hover {
+            box-shadow: 0 5px 15px rgba(220, 53, 69, 0.2);
+        }
+
+    /* Стили для бейджей */
+    .badge {
+        font-size: 0.9rem;
+        padding: 0.35em 0.65em;
+    }
+</style>
