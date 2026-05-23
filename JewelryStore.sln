@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.14.36414.22
+# Visual Studio Version 18
+VisualStudioVersion = 18.3.11505.172 d18.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JewelryStore", "JewelryStore\JewelryStore.csproj", "{A2D614F9-A9C8-47A7-8159-0CFB9F3587EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JewelryStore.Tests", "JewelryStore.Tests\JewelryStore.Tests.csproj", "{005D6075-88F1-462F-A25C-731A74CEAF61}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{A2D614F9-A9C8-47A7-8159-0CFB9F3587EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2D614F9-A9C8-47A7-8159-0CFB9F3587EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2D614F9-A9C8-47A7-8159-0CFB9F3587EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{005D6075-88F1-462F-A25C-731A74CEAF61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{005D6075-88F1-462F-A25C-731A74CEAF61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{005D6075-88F1-462F-A25C-731A74CEAF61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{005D6075-88F1-462F-A25C-731A74CEAF61}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
