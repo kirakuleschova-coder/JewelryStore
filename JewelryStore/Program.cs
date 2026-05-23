@@ -1,9 +1,12 @@
+using JewelryStore.Hubs;
 using Microsoft.EntityFrameworkCore;
 using JewelryStore.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddSignalR();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>options.UseSqlServer(builder.Configuration.GetConnectionString("JewelryStoreDb")));
 
@@ -25,7 +28,9 @@ app.UseAuthorization();
 
 app.MapStaticAssets();
 app.MapRazorPages()
+
    .WithStaticAssets();
+app.MapHub<JewelryStoreHub>("/jewelrystorehub");
 
 app.Run();
 
